@@ -27,21 +27,37 @@ Page {
                 id: pageheaderLabel
                 title: "Pakao Radio"
             }
-            Row {
-                anchors.horizontalCenter: parent.horizontalCenter
-                IconButton {
-                    id: playButton
-                    icon.source: (playMusic.playbackState == Audio.PlayingState) ? "image://theme/icon-l-pause" : "image://theme/icon-l-play"
-                    onClicked: (playMusic.playbackState == Audio.PlayingState) ? playMusic.pause() : playMusic.play()
+            Item {
+                width: parent.width
+                height: childrenRect.height
+                x: Theme.paddingLarge
+                Image {
+                    id: pentagram
+                    source: "qrc:/image/pentagram.svg"
+                    sourceSize.width: column.width - Theme.paddingLarge * 2
+                    sourceSize.height: column.height
+                    fillMode: Image.PreserveAspectFit
+                    IconButton {
+                        id: playButton
+                        icon.source: (playMusic.playbackState == Audio.PlayingState) ? "image://theme/icon-l-pause" : "image://theme/icon-l-play"
+                        onClicked: (playMusic.playbackState == Audio.PlayingState) ? playMusic.pause() : playMusic.play()
+                        anchors.top: parent.verticalCenter
+                        anchors.topMargin: -20
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        y: 20
+                    }
+                }
+                ProgressBar {
+                    maximumValue: 10
+                    minimumValue: 0
+                    value: playMusic.bufferProgress * 10
+                    label: "Buffer"
+                    width: pentagram.width
+                    anchors.top: pentagram.bottom
+                    anchors.topMargin: 200
                 }
             }
-            ProgressBar {
-                maximumValue: 10
-                minimumValue: 0
-                value: playMusic.bufferProgress * 10
-                label: "Buffer"
-                width: parent.width
-            }
+
             Audio {
                 id: playMusic
                 source: "http://andol3x1.dyndns.org:8000/live"

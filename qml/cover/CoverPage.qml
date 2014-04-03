@@ -32,10 +32,16 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
-    Label {
-        id: label
-        anchors.centerIn: parent
-        text: "My Cover"
+
+
+    Image {
+        id: coverImage
+        source: "qrc:/image/pentagram.svg"
+        sourceSize.width: parent.width * 2
+        sourceSize.height: parent.height * 2
+        x: 0
+        y: -200
+        opacity: 0.2
     }
 
     CoverActionList {

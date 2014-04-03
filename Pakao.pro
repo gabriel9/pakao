@@ -20,3 +20,6 @@ OTHER_FILES += qml/Pakao.qml \
     qml/pages/About.qml \
     qml/pages/Radio.qml
 
+RESOURCES += \
+    resorces.qrc
+

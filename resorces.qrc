@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>pentagram.svg</file>
+        <file>Pakao.png</file>
+    </qresource>
+</RCC>
