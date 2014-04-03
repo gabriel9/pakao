@@ -47,8 +47,6 @@ Page {
                 source: "http://andol3x1.dyndns.org:8000/live"
                 autoLoad: false
             }
-
-
         }
     }
 

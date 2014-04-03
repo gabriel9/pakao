@@ -43,12 +43,12 @@ CoverBackground {
 
         CoverAction {
             iconSource: "image://theme/icon-cover-play"
-            onTriggered: { radioPage.play() }
+            onTriggered: { app.play() }
         }
 
         CoverAction {
             iconSource: "image://theme/icon-cover-pause"
-            onTriggered: { radioPage.play() }
+            onTriggered: { app.stop() }
         }
     }
 }

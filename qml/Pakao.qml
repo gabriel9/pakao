@@ -34,8 +34,23 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { Radio { id: radioPage } }
+    id: app
+    property Radio _radio
+    initialPage: Component {
+        Radio {
+            id: radioPage
+            Component.onCompleted: app._radio = radioPage
+        }
+
+    }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+    function play() {
+        _radio.play();
+    }
+    function stop() {
+        _radio.stop();
+    }
 }
 
 
